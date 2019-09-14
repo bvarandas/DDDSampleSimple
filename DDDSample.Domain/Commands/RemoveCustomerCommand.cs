@@ -8,7 +8,7 @@ namespace DDDSample.Domain.Commands
         public RemoveCustomerCommand(Guid id)
         {
             Id = id;
-            AggregatedId = id;
+            AggregateId = id;
         }
 
         public override bool IsValid()

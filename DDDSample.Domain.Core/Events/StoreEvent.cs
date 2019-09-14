@@ -9,7 +9,7 @@ namespace DDDSample.Domain.Core.Events
         public StoredEvent(Event theEvent, string date, string user)
         {
             Id = Guid.NewGuid();
-            AggregatedId = theEvent.AggregatedId;
+            AggregateId = theEvent.AggregateId;
             MessageType = theEvent.MessageType;
             Data = Data;
             User = user;
