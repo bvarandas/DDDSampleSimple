@@ -2,6 +2,11 @@
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
+using DDDSample.Infra.CrossCutting.Bus;
+using DDDSample.Domain.Core.Bus;
+
+using DDDSample.Application.Interfaces;
+using DDDSample.Application.Services;
 
 namespace DDDSample.Infra.CrossCutting.IoC
 {
@@ -11,7 +16,10 @@ namespace DDDSample.Infra.CrossCutting.IoC
         {
             services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 
-            services.AddScoped<IMediatorHandler, InMemoruBus>();
+            services.AddScoped<IMediatorHandler, InMemmoryBus>();
+            
+            // Application
+            services.AddScoped<ICustomerAppService, CustomerAppService>();
 
         }
     }

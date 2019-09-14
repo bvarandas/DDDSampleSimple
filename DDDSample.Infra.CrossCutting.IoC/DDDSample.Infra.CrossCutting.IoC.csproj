@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="2.2.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\DDDSample.Application\DDDSample.Application.csproj" />
+    <ProjectReference Include="..\DDDSample.Infra.CrossCutting.Bus\DDDSample.Infra.CrossCutting.Bus.csproj" />
+  </ItemGroup>
+
 </Project>

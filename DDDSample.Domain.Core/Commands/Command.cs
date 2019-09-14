@@ -1,7 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
 using DDDSample.Domain.Core.Events;
+using FluentValidation.Results;
 
 namespace DDDSample.Domain.Core.Commands
 {
