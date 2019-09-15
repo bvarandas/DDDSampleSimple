@@ -43,9 +43,9 @@ namespace DDDSample.Application.Services
             Bus.SendCommand(registerCommand);
         }
 
-        public void Update(AdvViewModel customerViewModel)
+        public void Update(AdvViewModel advViewModel)
         {
-            var updateCommand = _mapper.Map<UpdateAdvCommand>(customerViewModel);
+            var updateCommand = _mapper.Map<UpdateAdvCommand>(advViewModel);
             Bus.SendCommand(updateCommand);
         }
 

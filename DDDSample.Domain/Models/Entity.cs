@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Text;
 
 namespace DDDSample.Domain.Models
 {
     public abstract class Entity
     {
-        public int Id { get; protected set; }
-
+        //public abstract int ID { get; protected set; }
+        /*
         public override bool Equals(object obj)
         {
             var compareTo = obj as Entity;
@@ -15,9 +16,9 @@ namespace DDDSample.Domain.Models
             if (ReferenceEquals(this, compareTo)) return true;
             if (ReferenceEquals(null, compareTo)) return false;
 
-            return Id.Equals(compareTo.Id);
-        }
-
+            return ID.Equals(compareTo.ID);
+        }*/
+        
         public static bool operator ==(Entity a, Entity b)
         {
             if (ReferenceEquals(a, null) && ReferenceEquals(b, null))
@@ -36,12 +37,12 @@ namespace DDDSample.Domain.Models
 
         public override int GetHashCode()
         {
-            return (GetType().GetHashCode() * 907) + Id.GetHashCode();
+            return (GetType().GetHashCode() * 907) ;
         }
 
         public override string ToString()
         {
-            return GetType().Name + " [Id=" + Id + "]";
+            return GetType().Name;
         }
     }
 }

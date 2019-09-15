@@ -95,10 +95,10 @@
     {
     <script type="text/javascript">
         $(".viewbutton").on("click", function () {
-            var customerId = $(this).data('id');
+            var anuncioId = $(this).data('id');
             $.ajax({
-                url: "https://localhost:44366/customer-management/customer-history/" + customerId,
-                //url: "http://equinoxproject.azurewebsites.net/customer-management/customer-history/" + customerId,
+                url: "https://localhost:44367/adv-management/adv-history/" + anuncioId,
+                
                 cache: false
             }).done(function (data) {
                 var formatHtml = "<table class='table table-striped'>";
@@ -117,7 +117,7 @@
                     formatHtml += "</tr>";
                 }
                 formatHtml += "</table>";
-                $("#customerHistoryData").html(formatHtml);
+                $("#advHistoryData").html(formatHtml);
             });
         });
     </script>

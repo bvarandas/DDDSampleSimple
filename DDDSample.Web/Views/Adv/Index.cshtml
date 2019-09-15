@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<DDDSample.Application.ViewModels.AdvViewModel>
 
 @{
-    ViewData["Title"] = "Advertisement Management";
+    ViewData["Title"] = "Lista de Anuncios";
 }
 
 <div>
@@ -35,6 +35,7 @@
             <th>
                 @Html.DisplayNameFor(model => model.Versao)
             </th>
+            <th>KM</th>
             <th></th>
         </tr>
         </thead>
@@ -52,18 +53,21 @@
                     @Html.DisplayFor(modelItem => item.Versao)
                 </td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.Quilometragem)
+                </td>
+                <td>
                     <a asp-action="Edit" asp-route-id="@item.ID" title="Edit" class="btn btn-warning">
                         <span class="glyphicon glyphicon-pencil"></span>
                     </a>
-                        
+
                     <a asp-action="Details" asp-route-id="@item.ID" title="Details" class="btn btn-primary">
                         <span class="glyphicon glyphicon-search"></span>
                     </a>
-                        
+
                     <a asp-action="Delete" asp-route-id="@item.ID" title="Delete" class="btn btn-danger">
                         <span class="glyphicon glyphicon-trash"></span>
                     </a>
-                    
+
                     <button type="button" class="btn btn-purple viewbutton" title="History" data-id="@item.ID" data-toggle="modal" data-target="#advHistory">
                         <span class="glyphicon glyphicon-time"></span>
                     </button>
@@ -79,7 +83,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Customer Data History</h4>
+                <h4 class="modal-title">Anuncio Data History</h4>
             </div>
             <div class="modal-body">
                 <p id="advHistoryData"></p>

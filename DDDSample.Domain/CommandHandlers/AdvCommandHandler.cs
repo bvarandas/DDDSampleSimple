@@ -43,14 +43,8 @@ namespace DDDSample.Domain.CommandHandlers
                 return Task.FromResult(false);
             }
 
-            var adv = new Adv(0, message.Marca, message.Modelo, message.Versao, message.Ano, message.Quilometragem, message.Observacao);
-            /*
-            if (_advRepository.GetByEmail(customer.Email) != null)
-            {
-                Bus.RaiseEvent(new DomainNotification(message.MessageType, "The customer e-mail has already been taken."));
-                return Task.FromResult(false);
-            }
-            */
+            var adv = new Adv(message.Marca, message.Modelo, message.Versao, message.Ano, message.Quilometragem, message.Observacao);
+            
             _advRepository.Add(adv);
 
             if (Commit())
@@ -70,18 +64,7 @@ namespace DDDSample.Domain.CommandHandlers
             }
 
             var adv = new Adv(message.ID, message.Marca, message.Modelo, message.Versao, message.Ano, message.Quilometragem, message.Observacao);
-            /*
-            var existingCustomer = _advRepository.GetByEmail(customer.Email);
-
-            if (existingCustomer != null && existingCustomer.Id != customer.Id)
-            {
-                if (!existingCustomer.Equals(customer))
-                {
-                    Bus.RaiseEvent(new DomainNotification(message.MessageType, "The customer e-mail has already been taken."));
-                    return Task.FromResult(false);
-                }
-            }*/
-
+            
             _advRepository.Update(adv);
 
             if (Commit())

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MediatR;
 using DDDSample.Domain.Core.Notifications;
+using DDDSample.Web.ViewModels;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -26,8 +27,8 @@ namespace DDDSample.Web.Controllers
 
         [HttpGet]
         [AllowAnonymous]
-        //[Route("")]
-        //[Route("/")]
+        [Route("")]
+        [Route("/")]
         [Route("adv-management/list-all")]
         public IActionResult Index()
         {
@@ -62,7 +63,7 @@ namespace DDDSample.Web.Controllers
         }
 
         [HttpPost]
-        [Route("/adv-management/register-new")]
+        [Route("adv-management/register-new")]
         //[ValidateAntiForgeryToken]
         public IActionResult Create(AdvViewModel advViewModel)
         {
@@ -70,9 +71,23 @@ namespace DDDSample.Web.Controllers
             _advAppService.Register(advViewModel);
 
             if (IsValidOperation())
-                ViewBag.Sucesso = "Advertise Registered!";
+                ViewBag.Sucesso = "Anúncio Registrado com sucesso!";
 
             return View(advViewModel);
+        }
+
+        [HttpGet]
+        [Route("adv-management/register-new-vehicle", Name ="cria_anuncio")]
+        public IActionResult Create(VeiculoViewModel veiculoModel )
+        {
+            var model = new AdvViewModel();
+            model.Ano = Convert.ToInt32( veiculoModel.YearFab);
+            model.Marca = veiculoModel.Make;
+            model.Modelo = veiculoModel.Model;
+            model.Quilometragem = Convert.ToInt32(veiculoModel.KM);
+            model.Versao = veiculoModel.Version;
+            
+            return View(model);
         }
 
         [HttpGet]
@@ -90,6 +105,20 @@ namespace DDDSample.Web.Controllers
             {
                 return NotFound();
             }
+
+            return View(advViewModel);
+        }
+
+        [HttpPost]
+        [Route("adv-management/edit-adv/{id:int}")]
+        public IActionResult Edit(AdvViewModel advViewModel)
+        {
+            if (!ModelState.IsValid) return View(advViewModel);
+
+            _advAppService.Update(advViewModel);
+
+            if (IsValidOperation())
+                ViewBag.Sucesso = "Anúncio Atualizado!";
 
             return View(advViewModel);
         }
@@ -121,9 +150,11 @@ namespace DDDSample.Web.Controllers
 
             if (!IsValidOperation()) return View(_advAppService.GetById(id));
 
-            ViewBag.Sucesso = "Adv Removed!";
+            ViewBag.Sucesso = "Anúncio removido!";
             return RedirectToAction("Index");
         }
+
+        
 
         [AllowAnonymous]
         [Route("adv-management/adv-history/{id:int" +

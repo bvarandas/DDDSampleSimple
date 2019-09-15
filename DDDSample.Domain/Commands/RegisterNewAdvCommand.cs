@@ -6,9 +6,9 @@ namespace DDDSample.Domain.Commands
 {
     public class RegisterNewAdvCommand : AdvCommand
     {
-        public RegisterNewAdvCommand(int id, string marca, string modelo, string versao, int ano, int quilometragem, string observacao)
+        public RegisterNewAdvCommand(string marca, string modelo, string versao, int ano, int quilometragem, string observacao)
         {
-            ID = id;
+            //ID = id;
             Marca = marca;
             Modelo = modelo;
             Versao = versao;

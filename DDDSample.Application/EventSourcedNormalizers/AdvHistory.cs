@@ -60,7 +60,7 @@ namespace DDDSample.Application.EventSourcedNormalizers
 
                 switch (e.MessageType)
                 {
-                    case "CustomerRegisteredEvent":
+                    case "AdvRegisteredEvent":
                         values = JsonConvert.DeserializeObject<dynamic>(e.Data);
                         slot.Marca = values["Marca"];
                         slot.Modelo= values["Modelo"];
@@ -73,7 +73,7 @@ namespace DDDSample.Application.EventSourcedNormalizers
                         slot.ID = values["ID"];
                         slot.Who = e.User;
                         break;
-                    case "CustomerUpdatedEvent":
+                    case "AdvUpdatedEvent":
                         values = JsonConvert.DeserializeObject<dynamic>(e.Data);
                         slot.Marca = values["Marca"];
                         slot.Modelo = values["Modelo"];
@@ -86,7 +86,7 @@ namespace DDDSample.Application.EventSourcedNormalizers
                         slot.ID = values["Id"];
                         slot.Who = e.User;
                         break;
-                    case "CustomerRemovedEvent":
+                    case "AdvRemovedEvent":
                         values = JsonConvert.DeserializeObject<dynamic>(e.Data);
                         slot.Action = "Removed";
                         slot.When = values["Timestamp"];

@@ -1,7 +1,7 @@
 @model DDDSample.Application.ViewModels.AdvViewModel
 
 @{
-    ViewData["Title"] = "Customer Details";
+    ViewData["Title"] = "Detalhe Anuncio";
 }
 
 <h2>@ViewData["Title"]</h2>
@@ -26,6 +26,24 @@
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Versao)
+        </dd>
+        <dt>
+            Ano
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Ano)
+        </dd>
+        <dt>
+            KM
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Quilometragem)
+        </dd>
+        <dt>
+            Observacao
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Observacao)
         </dd>
     </dl>
 </div>

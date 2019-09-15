@@ -50,13 +50,7 @@ namespace DDDSample.Services.Api
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
             services.AddAutoMapperSetup();
-            /*
-            services.AddAuthorization(options =>
-            {
-                options.AddPolicy("CanWriteCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Write")));
-                options.AddPolicy("CanRemoveCustomerData", policy => policy.Requirements.Add(new ClaimRequirement("Customers", "Remove")));
-            });
-            */
+            
             // Adding MediatR for Domain Events and Notifications
             services.AddMediatR(typeof(Startup));
 

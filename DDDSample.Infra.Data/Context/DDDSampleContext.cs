@@ -15,8 +15,6 @@ namespace DDDSample.Infra.Data.Context
             _env = env;
         }
 
-        public DbSet<Customer> Customers { get; set; }
-
         public DbSet<Adv> Advs { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

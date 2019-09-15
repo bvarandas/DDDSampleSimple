@@ -14,6 +14,7 @@ namespace DDDSample.Domain.Events
             Ano = ano;
             Quilometragem = quilometragem;
             Observacao = observacao;
+            AggregateId = id;
         }
 
         public int ID { get; set; }

@@ -8,6 +8,7 @@ namespace DDDSample.Domain.Events
         public AdvRemovedEvent(int id)
         {
             ID = id;
+            AggregateId = id;
         }
 
         public int ID { get; set; }

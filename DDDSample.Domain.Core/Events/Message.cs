@@ -8,7 +8,7 @@ namespace DDDSample.Domain.Core.Events
     {
         public string MessageType { get; protected set; }
         public int AggregateId { get; protected set; }
-        public int AggregateIdInt { get; protected set; }
+        
 
         protected Message()
         {

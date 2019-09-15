@@ -1,9 +1,14 @@
 @model DDDSample.Application.ViewModels.AdvViewModel
 @{
-        ViewData["Title"] = "Register new Customer";
+        ViewData["Title"] = "Registra novo anuncio";
 }
 
 <h2>@ViewData["Title"]</h2>
+<div id="vehicleDiv">
+
+
+</div>
+
 
 <form asp-action="Create">
     <div class="form-horizontal">
@@ -73,3 +78,28 @@
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script>
+    /*
+    jQuery(document).ready(function() {
+        getVehicle(1);
+    });
+    */
+function getVehicle() {
+    $.ajax({
+        // Get Vehicles Swagger
+        url: "/vehicle/getveiculos",
+        type: 'GET',
+        data: { veiculo: pageID },
+        success: function (data)
+        {
+            $("#vehicleDiv").empty();
+
+            jQuery("#vehicleDiv").html(data);
+        },
+        error: function (error) {
+            alert("Error: Please try again.");
+        }
+    });
+}
+</script>

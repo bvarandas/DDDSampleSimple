@@ -8,11 +8,10 @@ namespace DDDSample.Application.AutoMapper
     {
         public ViewModelToDomainMappingProfile()
         {
-            CreateMap<CustomerViewModel, RegisterNewCustomerCommand>()
-                .ConstructUsing(c => new RegisterNewCustomerCommand(c.Name, c.Email, c.BirthDate));
-
-            CreateMap<CustomerViewModel, UpdateCustomerCommand>().
-                ConstructUsing(c => new UpdateCustomerCommand(c.Id, c.Name, c.Name, c.BirthDate));
+            CreateMap<AdvViewModel, RegisterNewAdvCommand>()
+                .ConstructUsing(c => new RegisterNewAdvCommand(c.Marca, c.Modelo, c.Versao, c.Ano, c.Quilometragem, c.Observacao));
+            CreateMap<AdvViewModel, UpdateAdvCommand>()
+                .ConstructUsing(c => new UpdateAdvCommand(c.ID, c.Marca, c.Modelo, c.Versao, c.Ano, c.Quilometragem, c.Observacao));
         }
     }
 }

@@ -7,7 +7,14 @@ namespace DDDSample.Domain.Events
     {
         public AdvUpdatedEvent(int id, string marca, string modelo, string versao, int ano, int quilometragem, string observacao)
         {
-
+            ID = id;
+            Marca = marca;
+            Modelo = modelo;
+            Versao = versao;
+            Ano = ano;
+            Quilometragem = quilometragem;
+            Observacao = observacao;
+            AggregateId = id;
         }
 
         public int ID { get; set; }
@@ -23,5 +30,7 @@ namespace DDDSample.Domain.Events
         public int Quilometragem { get; private set; }
 
         public string Observacao { get; private set; }
+
+
     }
 }

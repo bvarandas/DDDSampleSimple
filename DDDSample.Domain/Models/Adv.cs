@@ -7,7 +7,18 @@ namespace DDDSample.Domain.Models
     [Table("tb_AnuncioWebmotors")]
     public class Adv : Entity
     {
-        public Adv(int id, string marca, string modelo , string versao, int ano, int quilometragem, string observacao)
+        public Adv(string marca, string modelo , string versao, int ano, int quilometragem, string observacao)
+        {
+            //ID = id;
+            Marca = marca;
+            Modelo = modelo;
+            Versao = versao;
+            Ano = ano;
+            Quilometragem = quilometragem;
+            Observacao = observacao;
+        }
+
+        public Adv(int id, string marca, string modelo, string versao, int ano, int quilometragem, string observacao)
         {
             ID = id;
             Marca = marca;
@@ -20,7 +31,9 @@ namespace DDDSample.Domain.Models
 
         // Entity framework
         protected Adv() { }
+
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
 
         public string Marca { get; private set; }

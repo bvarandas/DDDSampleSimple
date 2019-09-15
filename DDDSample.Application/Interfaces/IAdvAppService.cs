@@ -8,10 +8,10 @@ namespace DDDSample.Application.Interfaces
 {
     public interface IAdvAppService : IDisposable
     {
-        void Register(AdvViewModel customerViewModel);
+        void Register(AdvViewModel advViewModel);
         IEnumerable<AdvViewModel> GetAll();
         AdvViewModel GetById(int id);
-        void Update(AdvViewModel customerViewModel);
+        void Update(AdvViewModel advViewModel);
         void Remove(int id);
         IList<AdvHistoryData> GetAllHistory(int id);
     }

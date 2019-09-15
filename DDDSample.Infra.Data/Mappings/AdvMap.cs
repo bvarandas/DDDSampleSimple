@@ -9,7 +9,8 @@ namespace DDDSample.Infra.Data.Mappings
         public void Configure(EntityTypeBuilder<Adv> builder)
         {
             builder.Property(c => c.ID)
-                .HasColumnName("ID");
+                .HasColumnName("ID").
+                ValueGeneratedOnAdd();
 
             builder.Property(c => c.Marca)
                 .HasColumnType("varchar(45)")

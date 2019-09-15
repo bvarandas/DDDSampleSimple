@@ -20,4 +20,10 @@
     <ProjectReference Include="..\DDDSample.Infra.CrossCutting.IoC\DDDSample.Infra.CrossCutting.IoC.csproj" />
   </ItemGroup>
 
+
+  <ItemGroup>
+    <Folder Include="ViewModels\" />
+    <Folder Include="wwwroot\images\" />
+  </ItemGroup>
+
 </Project>

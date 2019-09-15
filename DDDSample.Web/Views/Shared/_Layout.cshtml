@@ -10,7 +10,7 @@
     </environment>
     <environment exclude="Development">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.css"
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute"
               crossorigin="anonymous"
               integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"/>
@@ -29,10 +29,10 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Home</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="adv" asp-action="Index">Advertisement</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Privacy</a>
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Vehicles" asp-action="GetVeiculos">Vehicles</a>
                         </li>
                     </ul>
                 </div>
@@ -40,6 +40,22 @@
         </nav>
     </header>
     <div class="container">
+        @if (ViewData.ModelState.ErrorCount > 0)
+        {
+            <div class="alert alert-danger">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h3 id="msgRetorno">Oops! Something went wrong:</h3>
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            </div>
+        }
+
+        @if (!string.IsNullOrEmpty(ViewBag.Sucesso))
+        {
+            <div class="alert alert-success">
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <h3 id="msgRetorno">@ViewBag.Sucesso</h3>
+            </div>
+        }
         <partial name="_CookieConsentPartial" />
         <main role="main" class="pb-3">
             @RenderBody()
