@@ -43,12 +43,12 @@ namespace DDDSample.Application.Services
             return _customerRepository.GetAll().ProjectTo<CustomerViewModel>(_mapper.ConfigurationProvider);
         }
 
-        public IList<CustomerHistoryData> GetAllHistory(Guid id)
+        public IList<CustomerHistoryData> GetAllHistory(int id)
         {
             return CustomerHistory.ToJavaScriptCustomerHistory(_eventStoreRepository.All(id));
         }
 
-        public CustomerViewModel GetById(Guid id)
+        public CustomerViewModel GetById(int id)
         {
             return _mapper.Map<CustomerViewModel>(_customerRepository.GetById(id));
         }
@@ -59,7 +59,7 @@ namespace DDDSample.Application.Services
             Bus.SendCommand(registerCommand);
         }
 
-        public void Remove(Guid id)
+        public void Remove(int id)
         {
             var removeCommand = new RemoveCustomerCommand(id);
             Bus.SendCommand(removeCommand);

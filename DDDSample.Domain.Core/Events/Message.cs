@@ -7,7 +7,8 @@ namespace DDDSample.Domain.Core.Events
     public abstract class Message : IRequest<bool>
     {
         public string MessageType { get; protected set; }
-        public Guid AggregateId { get; protected set; }
+        public int AggregateId { get; protected set; }
+        public int AggregateIdInt { get; protected set; }
 
         protected Message()
         {

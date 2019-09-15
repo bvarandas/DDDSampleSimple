@@ -6,7 +6,7 @@ namespace DDDSample.Domain.Models
 {
     public class Customer : Entity
     {
-        public Customer(Guid id, string name, string email, DateTime birthDate)
+        public Customer(int id, string name, string email, DateTime birthDate)
         {
             Id = id;
             Name = name;

@@ -6,7 +6,7 @@ namespace DDDSample.Domain.Models
 {
     public abstract class Entity
     {
-        public Guid Id { get; protected set; }
+        public int Id { get; protected set; }
 
         public override bool Equals(object obj)
         {

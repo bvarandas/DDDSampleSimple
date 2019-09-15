@@ -10,10 +10,10 @@ namespace DDDSample.Application.Interfaces
     {
         void Register(CustomerViewModel customerViewModel);
         IEnumerable<CustomerViewModel> GetAll();
-        CustomerViewModel GetById(Guid id);
+        CustomerViewModel GetById(int id);
         void Update(CustomerViewModel customerViewModel);
-        void Remove(Guid id);
-        IList<CustomerHistoryData> GetAllHistory(Guid id);
+        void Remove(int id);
+        IList<CustomerHistoryData> GetAllHistory(int id);
 
     }
 }

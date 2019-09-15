@@ -5,7 +5,7 @@ namespace DDDSample.Domain.Commands
 {
     public class RemoveCustomerCommand : CustomerCommand
     {
-        public RemoveCustomerCommand(Guid id)
+        public RemoveCustomerCommand(int id)
         {
             Id = id;
             AggregateId = id;

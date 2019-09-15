@@ -15,7 +15,7 @@ namespace DDDSample.Infra.Data.Repository.EventSourcing
             _context = context;
         }
 
-        public IList<StoredEvent> All(Guid aggregateId)
+        public IList<StoredEvent> All(int aggregateId)
         {
             return (from e in _context.StoredEvent where e.AggregateId == aggregateId select e).ToList();
         }

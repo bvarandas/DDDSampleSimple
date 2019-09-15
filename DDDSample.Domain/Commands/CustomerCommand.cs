@@ -7,7 +7,7 @@ namespace DDDSample.Domain.Commands
 {
     public abstract class CustomerCommand : Command
     {
-        public Guid Id { get; protected set; }
+        public int Id { get; protected set; }
 
         public string Name { get; protected set; }
 

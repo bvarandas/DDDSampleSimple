@@ -8,7 +8,7 @@ namespace DDDSample.Domain.Core.Events
     {
         public StoredEvent(Event theEvent, string date, string user)
         {
-            Id = Guid.NewGuid();
+            Id = 0;
             AggregateId = theEvent.AggregateId;
             MessageType = theEvent.MessageType;
             Data = Data;
@@ -17,7 +17,7 @@ namespace DDDSample.Domain.Core.Events
 
         protected StoredEvent() { }
 
-        public Guid Id { get; private set; }
+        public int Id { get; private set; }
 
         public string Data { get; private set; }
 

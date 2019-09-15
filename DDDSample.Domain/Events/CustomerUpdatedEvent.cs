@@ -5,7 +5,7 @@ namespace DDDSample.Domain.Events
 {
     public class CustomerUpdatedEvent : Event
     {
-        public CustomerUpdatedEvent(Guid id, string name, string email, DateTime birthDate)
+        public CustomerUpdatedEvent(int id, string name, string email, DateTime birthDate)
         {
             Id = id;
             Name = name;
@@ -13,7 +13,7 @@ namespace DDDSample.Domain.Events
             BirthDate = birthDate;
             AggregateId = id;
         }
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         public string Name { get; private set; }
 

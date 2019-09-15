@@ -34,20 +34,32 @@ namespace DDDSample.Infra.CrossCutting.IoC
             
             // Application
             services.AddScoped<ICustomerAppService, CustomerAppService>();
+            services.AddScoped<IAdvAppService, AdvAppService>();
 
             // Domain - Events
             services.AddScoped<INotificationHandler<DomainNotification>, DomainNotificationHandler>();
+
             services.AddScoped<INotificationHandler<CustomerRegisteredEvent>, CustomerEventHandler>();
             services.AddScoped<INotificationHandler<CustomerUpdatedEvent>, CustomerEventHandler>();
             services.AddScoped<INotificationHandler<CustomerRemovedEvent>, CustomerEventHandler>();
+
+            services.AddScoped<INotificationHandler<AdvRegisteredEvent>, AdvEventHandler>();
+            services.AddScoped<INotificationHandler<AdvUpdatedEvent>, AdvEventHandler>();
+            services.AddScoped<INotificationHandler<AdvRemovedEvent>, AdvEventHandler>();
 
             // Domain - Commands
             services.AddScoped<IRequestHandler<RegisterNewCustomerCommand, bool>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<UpdateCustomerCommand, bool>, CustomerCommandHandler>();
             services.AddScoped<IRequestHandler<RemoveCustomerCommand, bool>, CustomerCommandHandler>();
 
+            services.AddScoped<IRequestHandler<RegisterNewAdvCommand, bool>, AdvCommandHandler>();
+            services.AddScoped<IRequestHandler<UpdateAdvCommand, bool>, AdvCommandHandler>();
+            services.AddScoped<IRequestHandler<RemoveAdvCommand, bool>, AdvCommandHandler>();
+
             // Infra - Data
             services.AddScoped<ICustomerRepository, CustomerRepository>();
+            services.AddScoped<IAdvRepository, AdvRepository>();
+
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<DDDSampleContext>();
 

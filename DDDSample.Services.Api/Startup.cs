@@ -44,8 +44,8 @@ namespace DDDSample.Services.Api
             //services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
             services.AddMvc(options =>
             {
-                options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
-                options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
+                //options.OutputFormatters.Remove(new XmlDataContractSerializerOutputFormatter());
+                //options.UseCentralRoutePrefix(new RouteAttribute("api/v{version}"));
             })
             .SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
@@ -71,6 +71,7 @@ namespace DDDSample.Services.Api
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseDatabaseErrorPage();
             }
             else
             {
@@ -91,6 +92,13 @@ namespace DDDSample.Services.Api
             */
             app.UseHttpsRedirection();
             app.UseMvc();
+            /*
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=adv}/{action=Index}/{id?}");
+            });*/
         }
 
         private static void RegisterServices(IServiceCollection services)

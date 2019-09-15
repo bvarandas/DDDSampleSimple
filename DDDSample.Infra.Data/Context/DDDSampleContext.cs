@@ -17,9 +17,11 @@ namespace DDDSample.Infra.Data.Context
 
         public DbSet<Customer> Customers { get; set; }
 
+        public DbSet<Adv> Advs { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new CustomerMap());
+            modelBuilder.ApplyConfiguration(new AdvMap());
 
             base.OnModelCreating(modelBuilder);
         }

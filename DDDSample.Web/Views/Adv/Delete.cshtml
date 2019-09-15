@@ -1,0 +1,42 @@
+@model DDDSample.Application.ViewModels.AdvViewModel
+
+@{
+    ViewData["Title"] = "Delete Customer";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<form asp-action="Delete">
+    <vc:summary />
+
+    <h3>Are you sure you want to delete the @Model.Modelo?</h3>
+    <div>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Marca)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Marca)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Modelo)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Modelo)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Versao)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Versao)
+            </dd>
+        </dl>
+
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-danger" />
+            <a asp-action="Index" class="btn btn-info">Back to List</a>
+        </div>
+    </div>
+</form>

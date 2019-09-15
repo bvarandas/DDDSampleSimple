@@ -32,7 +32,7 @@ namespace DDDSample.Domain.Validations
         protected void ValidateId()
         {
             RuleFor(c => c.Id)
-                .NotEqual(Guid.Empty);
+                .NotEqual(0);
         }
 
         protected static bool HaveMinimumAge(DateTime birthDate)

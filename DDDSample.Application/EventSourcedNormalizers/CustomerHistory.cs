@@ -24,7 +24,7 @@ namespace DDDSample.Application.EventSourcedNormalizers
             {
                 var jsSlot = new CustomerHistoryData
                 {
-                    Id = change.Id == Guid.Empty.ToString() || change.Id == last.Id
+                    Id = change.Id == "0" || change.Id == last.Id
                         ? ""
                         : change.Id,
                     Name = string.IsNullOrWhiteSpace(change.Name) || change.Name == last.Name

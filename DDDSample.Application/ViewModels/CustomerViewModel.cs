@@ -7,7 +7,7 @@ namespace DDDSample.Application.ViewModels
     public class CustomerViewModel
     {
         [Key]
-        public Guid Id { get; set; }
+        public int Id { get; set; }
 
         [Required(ErrorMessage = "The Name is Required")]
         [MinLength(2)]

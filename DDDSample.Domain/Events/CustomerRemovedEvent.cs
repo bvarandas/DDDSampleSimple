@@ -5,12 +5,12 @@ namespace DDDSample.Domain.Events
 {
     public class CustomerRemovedEvent : Event
     {
-        public CustomerRemovedEvent(Guid id)
+        public CustomerRemovedEvent(int id)
         {
             Id = id;
             AggregateId = id;
         }
 
-        public Guid Id { get; set; }
+        public int Id { get; set; }
     }
 }
