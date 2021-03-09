@@ -157,10 +157,10 @@ namespace DDDSample.Web.Controllers
         
 
         [AllowAnonymous]
-        [Route("adv-management/adv-history/{id:int" +
+        [Route("adv-management/adv-history/{id:Guid" +
             "" +
             "}")]
-        public JsonResult History(int id)
+        public JsonResult History(Guid id)
         {
             var advHistoryData = _advAppService.GetAllHistory(id);
             return Json(advHistoryData);
